@@ -9,6 +9,8 @@ import TestMaterialUI from "./components/TestMaterialUI";
 import GroupeRock from "./components/GroupeRock";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import Detail from "./components/AlbumDetails";
+import TabMenu from "./components/TabMenu";
 
 function App() {
   let nom = "Hello Madagascar";
@@ -20,6 +22,7 @@ function App() {
         &nbsp;
         <Link to="/rock">Groupe Rock</Link>
         <Link to="/ui">Test Material UI</Link>
+        <Link to="/album">Ttay</Link>
         &nbsp;
         <Link to="/photos">Photos</Link>
         &nbsp;
@@ -27,6 +30,7 @@ function App() {
         <Route exact path="/" component={Home}></Route>
         <Route path="/ui" component={TestMaterialUI}></Route>
         <Route path="/photos/:id" component={Photos}></Route>
+        <Route path="/album" component={Detail}></Route>
         <Route
           path="/username"
           component={() => <Username name="Michel" age="54" />}
