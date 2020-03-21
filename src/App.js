@@ -7,12 +7,15 @@ import Photos from "./components/Photos";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import TestMaterialUI from "./components/TestMaterialUI";
 import GroupeRock from "./components/GroupeRock";
+import NavBar from "./components/NavBar";
+import TabMenu from "./components/TabMenu";
 
 function App() {
   let nom = "Hello Madagascar";
-
   return (
     <div className="App">
+      <NavBar></NavBar>
+      <TabMenu></TabMenu>
       <BrowserRouter>
         <Link to="/">Home</Link>
         &nbsp;
