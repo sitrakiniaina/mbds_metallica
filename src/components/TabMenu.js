@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import TestMaterialUI from "./TestMaterialUI";
+import GroupeRock from "./GroupeRock";
+import AlbumGroupe from "./AlbumGroupe";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -77,10 +79,10 @@ export default function ScrollableTabsButtonAuto() {
         <TestMaterialUI></TestMaterialUI>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <GroupeRock></GroupeRock>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <AlbumGroupe></AlbumGroupe>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four
