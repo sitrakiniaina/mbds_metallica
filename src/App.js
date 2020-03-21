@@ -8,14 +8,13 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import TestMaterialUI from "./components/TestMaterialUI";
 import GroupeRock from "./components/GroupeRock";
 import NavBar from "./components/NavBar";
-import TabMenu from "./components/TabMenu";
+import Home from "./components/Home";
 
 function App() {
   let nom = "Hello Madagascar";
   return (
     <div className="App">
       <NavBar></NavBar>
-      <TabMenu></TabMenu>
       <BrowserRouter>
         <Link to="/">Home</Link>
         &nbsp;
@@ -25,7 +24,7 @@ function App() {
         <Link to="/photos">Photos</Link>
         &nbsp;
         <Link to="/username">Username</Link>
-        <Route exact path="/" component={ListeHobbies}></Route>
+        <Route exact path="/" component={Home}></Route>
         <Route path="/ui" component={TestMaterialUI}></Route>
         <Route path="/photos/:id" component={Photos}></Route>
         <Route
