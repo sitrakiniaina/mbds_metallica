@@ -13,6 +13,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import CustomAvatar from './../components/Common/CustomAvatar';
 import Container from '@material-ui/core/Container';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import history from './../history';
 const useStyles = theme => ({
     root: {
       flexGrow: 1,
@@ -38,11 +40,12 @@ class SongDetails extends React.Component {
     songid;
     albumid;
     song;
+    album;
     constructor(props) {
       super(props);
       this.albumid = props.match.params.albumname;    
       this.songid = props.match.params.songname;
-      this.album = metallicaData.albums.find(c=>c._id==this.albumid);
+      this.album = metallicaData.albums.find(c=>c.title==this.albumid);
       this.song = metallicaData.albums.find(c=>c.title==this.albumid).songs.find(c=>c.title==this.songid);
     }
     availableAlbum(){
@@ -58,7 +61,7 @@ class SongDetails extends React.Component {
         return available;
     }
     handleClick = (event,url) => {
-        window.location.href=url;
+        history.push(url);
     };
     render() {
         SongDetails.propTypes = {
@@ -71,10 +74,34 @@ class SongDetails extends React.Component {
             <Container maxWidth="lg" >
                 <Grid className={classes.block} container spacing={1}>                    
                     <Grid item xs={12}>
-                        < Paper className={classes.paper}>
-                        <Typography variant="h2" gutterBottom>
-                            {this.song.title}
-                        </Typography>
+                        <Paper className={classes.paper}>
+                            <Grid container>
+                                <Grid xs={3}>
+                                <ButtonBase className={classes.image}
+                                onClick={event=>this.handleClick(event,"/")}>
+                                    <img className={classes.img} alt="complex" src={metallicaData.picture.small} />
+                                    <Typography  gutterBottom>
+                                        {metallicaData.name}
+                                    </Typography>
+                                </ButtonBase>
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Typography variant="h2" gutterBottom>
+                                        {this.song.title}
+                                    </Typography>
+                                </Grid>                                
+                                <Grid xs={3}>
+                                    <ButtonBase className={classes.image}
+                                    onClick={event=>this.handleClick(event,"/album/"+this.album.title)}>
+                                        <img className={classes.img} alt="complex" src={this.album?.cover?.small??this.album.title} />
+                                        <Typography  gutterBottom>
+                                            {this.album.title}
+                                        </Typography>
+                                    </ButtonBase>
+                                 
+                                </Grid>
+                            </Grid>
+                           
                         </Paper>
                     </Grid>
                     <Grid item xs={12}>

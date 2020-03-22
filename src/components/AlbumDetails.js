@@ -34,6 +34,12 @@ const useStyles = theme => ({
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
+  },
+  avatar :{
+    padding: theme.spacing(1),
+    margin: 'auto',
+    marginTop : '12px',
+    width: 700,
   }
   
 });
@@ -51,7 +57,11 @@ class AlbumDetails extends React.Component {
     return (    
     <div className={classes.root}>
       <AlbumDetailsHead albumid={this.album._id}> </AlbumDetailsHead>        
-      <CustomAvatar idgenerique={this.album._id} type="album"></CustomAvatar>  
+      <Paper className={classes.avatar}>
+      <CustomAvatar  idgenerique={this.album._id} type="album"></CustomAvatar>
+      </Paper>
+      
+      
       <Divider />      
       <SongList albumname={this.album.title} songs={this.album.songs} ></SongList>           
     </div>
