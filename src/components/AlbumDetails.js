@@ -11,6 +11,8 @@ import SongList from "./SongList";
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Divider from '@material-ui/core/Divider';
+import history from './../history';
+
 import CustomAvatar from './../components/Common/CustomAvatar';
 
 const useStyles = makeStyles(theme => ({
@@ -45,12 +47,13 @@ class AlbumDetails extends React.Component {
   render(){   
     const { classes ,
     } = this.props;
+    console.log(this.album);
     return (    
     <div className={classes.root}>
       <AlbumDetailsHead albumid={this.album._id}> </AlbumDetailsHead>        
       <CustomAvatar idgenerique={this.album._id} type="album"></CustomAvatar>  
       <Divider />      
-      <SongList albumid={this.album._id}></SongList>           
+      <SongList albumname={this.album.title} songs={this.album.songs} ></SongList>           
     </div>
     );
   }

@@ -15,6 +15,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import metallicaData from './../data/mettalica';
+import history from './../history';
 
 //styles
 const useStyles = makeStyles(theme => ({
@@ -37,6 +38,7 @@ class Home extends React.Component {
     // addHobby au lieu de this.addHobby, etc.)
     // const { imgSrc } = this.state;
     const { classes } = this.props;
+
 
 
       return (

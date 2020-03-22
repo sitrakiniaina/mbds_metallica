@@ -3,7 +3,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import metallicaData from './../data/mettalica';
+import history from './../history';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,31 +27,25 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 class SongList extends React.Component {
-  state = {
-    
-  };
-  albumurl;
-  album;
   constructor(props) {
-    
     super(props);
-    this.album =metallicaData.albums.find(c=>c._id==props.albumid);   
-    this.albumurl = "/album/"+this.album.title+"/song/";
   }
   handleListItemClick = (event, url) => {
-    window.location.href=url;
+    console.log("mankato");
+    history.push(url);
   };
   render(){   
-    const { classes ,
+    const { classes , songs , albumname
     } = this.props;
     return (
       <div className={classes.root}>                      
         <List component="nav">       
-          {metallicaData.albums.find(c=>c.title==this.album.title).songs.map((song,i) => (               
+          {songs.map((song,i) => (               
           <ListItem
-            button
 
-            onClick={event => this.handleListItemClick(event, this.albumurl+song.title)}
+            button
+            key={song._id}
+            onClick={event => this.handleListItemClick(event, "/song/"+albumname+"/"+song.title)}
           >
             <ListItemText className={classes.listDesc} primary={i+1} />
             <ListItemText className={classes.listTitre} primary={song.title} />

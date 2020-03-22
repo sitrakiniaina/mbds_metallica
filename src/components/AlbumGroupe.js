@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import PropTypes from 'prop-types';
 import metallicaData from './../data/mettalica';
+import history from './../history';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,8 +29,7 @@ class AlbumGroupe extends React.Component {
         super(props);
     }
     routeChange(path) {
-        //this.props.history.push(path);
-        window.location.href=path;
+        history.push(path);
     }
     render(){
         AlbumGroupe.propTypes = {
