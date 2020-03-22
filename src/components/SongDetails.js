@@ -11,6 +11,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import CustomAvatar from './../components/Common/CustomAvatar';
 const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
@@ -41,11 +42,26 @@ class SongDetails extends React.Component {
     song;
     constructor(props) {
       super(props);
-      this.albumid = props.match.params.albumname;
+      this.albumid = props.match.params.albumname;    
       this.songid = props.match.params.songname;
       this.album = metallicaData.albums.find(c=>c._id==this.albumid);
       this.song = metallicaData.albums.find(c=>c.title==this.albumid).songs.find(c=>c.title==this.songid);
     }
+    availableAlbum(){
+        var available = [];       
+        metallicaData.albums.map(album=> {
+            album.songs.map(song =>{
+                if(song.title==this.song.title){
+                    var keyValue = {key:album.title,value:"/album/"+album.title};            
+                    available.push(keyValue);
+                }
+            });
+        });
+        return available;
+    }
+    handleClick = (event,url) => {
+        window.location.href=url;
+    };
     render() {
         SongDetails.propTypes = {
             classes: PropTypes.object.isRequired,
@@ -66,9 +82,7 @@ class SongDetails extends React.Component {
                     <Grid container>  
                         <Grid item xs={6}>
                             <Paper className={classes.paper}>
-                                <ul className={classes.ulSection}>                                   
-                                    <li className={classes.liSection}> url </li>                                                                                               
-                                </ul>
+                                <CustomAvatar type="song" idgenerique={this.song._id}></CustomAvatar>
                             </Paper>
                         </Grid>
                     </Grid>
@@ -149,6 +163,12 @@ class SongDetails extends React.Component {
             </TableRow>
             <TableRow>
               <TableCell align="left" component="th" scope="row">
+              Award
+              </TableCell>
+              <TableCell align="lef">{this.song.award}</TableCell>             
+            </TableRow>
+            <TableRow>
+              <TableCell align="left" component="th" scope="row">
               RecordLabel
               </TableCell>
         <TableCell align="lef">{this.song.recordLabel}</TableCell>             
@@ -181,8 +201,14 @@ class SongDetails extends React.Component {
               <TableCell align="left" component="th" scope="row">
               Also available in
               </TableCell>
-              <TableCell align="lef">44333</TableCell>             
-            </TableRow>
+              <TableCell align="lef">
+                  {
+                    this.availableAlbum().map(item=>{
+                        return <a  onClick={event=>this.handleClick(event,item.value)}>{item.key}  -  </a>;
+                    })
+                  }
+              </TableCell>             
+            </TableRow> 
             <TableRow>
               <TableCell align="left" component="th" scope="row">
               Cover versions (4)

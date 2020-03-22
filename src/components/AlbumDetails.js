@@ -11,6 +11,8 @@ import SongList from "./SongList";
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Divider from '@material-ui/core/Divider';
+import CustomAvatar from './../components/Common/CustomAvatar';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -30,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     maxWidth: '100%',
     maxHeight: '100%',
-  },
+  }
+  
 }));
 class AlbumDetails extends React.Component {
   album;
@@ -44,12 +47,8 @@ class AlbumDetails extends React.Component {
     } = this.props;
     return (    
     <div className={classes.root}>
-      <AlbumDetailsHead albumid={this.album._id}> </AlbumDetailsHead>   
-      <ButtonGroup color="">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      </ButtonGroup>      
+      <AlbumDetailsHead albumid={this.album._id}> </AlbumDetailsHead>        
+      <CustomAvatar idgenerique={this.album._id} type="album"></CustomAvatar>  
       <Divider />      
       <SongList albumid={this.album._id}></SongList>           
     </div>
