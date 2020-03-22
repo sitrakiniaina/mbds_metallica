@@ -196,7 +196,7 @@ class SongDetails extends React.Component {
                                 <TableCell align="left" component="th" scope="row">
                                 Also available in
                                 </TableCell>
-                                <TableCell align="lef">
+                                <TableCell align="left">
                                     {
                                         this.availableAlbum().map(item=>{
                                             return <a  onClick={event=>this.handleClick(event,item.value)}>{item.key}  -  </a>;
