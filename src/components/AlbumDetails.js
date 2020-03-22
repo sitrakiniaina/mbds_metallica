@@ -15,7 +15,7 @@ import history from './../history';
 
 import CustomAvatar from './../components/Common/CustomAvatar';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '100%',
   }
   
-}));
+});
 class AlbumDetails extends React.Component {
   album;
   albumid;

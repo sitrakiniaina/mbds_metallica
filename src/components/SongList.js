@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import history from './../history';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
   root: {
     flexGrow :1,
     width: '100%',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     width : '3px',
     textAlign : "left",
   },
-}));
+});
 class SongList extends React.Component {
   constructor(props) {
     super(props);

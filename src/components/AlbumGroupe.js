@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import metallicaData from './../data/mettalica';
 import history from './../history';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
-}));
+});
 class AlbumGroupe extends React.Component {
     constructor(props) {
         super(props);

@@ -65,7 +65,7 @@ function AlbumDetailsHead(props) {
                         </ListItem>
                         <ListItem button>
                             <ListItemText className={classes.listTitre} primary="Artist" />
-                            <ListItemText className={classes.listDesc} primary={metallicaData.name} />
+                            <ListItemText className={classes.listDesc} primary={album.id_artist} />
                         </ListItem>
                         <ListItem button>
                             <ListItemText className={classes.listTitre} primary="Number of fan" />
@@ -85,7 +85,8 @@ function AlbumDetailsHead(props) {
           </Grid>
         </Grid>
       </Paper>    
-    </div>  
+    </div>
+    
   );
 }
 export default AlbumDetailsHead;

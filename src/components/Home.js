@@ -18,15 +18,15 @@ import metallicaData from './../data/mettalica';
 import history from './../history';
 
 //styles
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
   root: {
-    maxWidth: 345,
   },
   media: {
     height: 250,
-    width: 250
+    width: 250,
+    margin: "auto",
   },
-}));
+});
 class Home extends React.Component {
   state = {
     
@@ -49,7 +49,13 @@ class Home extends React.Component {
                     <Grid item xs={6}>
                     <Card className={classes.root}>
                       <CardActionArea>
-                        <img src={metallicaData.picture.medium}></img>
+                        <CardMedia
+                          className={classes.media}
+                          component="img"
+                          alt="Contemplative Reptile"
+                          image={metallicaData.picture.medium}
+                          title="Contemplative Reptile"
+                        />
                         <CardContent>
                           <Typography gutterBottom variant="h5" component="h2">
                             {metallicaData.name}

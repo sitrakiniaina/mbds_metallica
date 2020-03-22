@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import TestMaterialUI from "./TestMaterialUI";
 import GroupeRock from "./GroupeRock";
 import AlbumGroupe from "./AlbumGroupe";
+import Members from "./Membres"
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -74,7 +75,7 @@ export default function ScrollableTabsButtonAuto() {
         </Tabs>
       </AppBar>    
       <TabPanel value={value} index={0}>
-        <GroupeRock></GroupeRock>
+        <Members></Members>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <AlbumGroupe></AlbumGroupe>
