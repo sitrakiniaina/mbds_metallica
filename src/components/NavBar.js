@@ -14,6 +14,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import history from './../history';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -104,6 +107,14 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const toHome = (event,url) => {
+    history.push(url);
+  }
+
+  const toPrevious = (event,url) => {
+    history.goBack();
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -165,17 +176,21 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Metallica
-          </Typography>
+          <ButtonBase>
+            <ArrowBackIcon
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="previous"
+              onClick={event=>toPrevious(event,"/")}
+            >
+          </ArrowBackIcon>
+          </ButtonBase>
+          <ButtonBase>
+            <Typography onClick={event=>toHome(event,"/")} className={classes.title} variant="h6" noWrap>
+              Metallica
+            </Typography>
+          </ButtonBase>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
