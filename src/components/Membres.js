@@ -26,11 +26,10 @@ export default function SimpleTable() {
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">Instruments</TableCell>
-            <TableCell align="right">Real name</TableCell>
-            <TableCell align="right">Birth Date</TableCell>
-            <TableCell align="right">Begin</TableCell>
-            <TableCell align="right">End</TableCell>
+            <TableCell>Instruments</TableCell>
+            <TableCell>Real name</TableCell>
+            <TableCell>Birth Date</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,8 +41,6 @@ export default function SimpleTable() {
               <TableCell align="left">{member.instruments}</TableCell>
               <TableCell align="left">{member.realName}</TableCell>
               <TableCell align="right">{member.birthDate}</TableCell>              
-              <TableCell align="right">{member.begin}</TableCell>
-              <TableCell align="right">{member.end}</TableCell>
             </TableRow>
           ))}
         </TableBody>
