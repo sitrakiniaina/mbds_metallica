@@ -4,7 +4,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import metallicaData from './../../data/mettalica';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
 const useStyles =theme => ({
   root: {
     display: 'flex',
@@ -32,6 +31,9 @@ class CustomAvatar extends React.Component {
                 });
             });
         } 
+        if(this.props.type=="member"){
+            this.element= metallicaData.members.find(c=>c.name = this.props.idgenerique);
+        }
     }    
     render(){
         CustomAvatar.propTypes = {
