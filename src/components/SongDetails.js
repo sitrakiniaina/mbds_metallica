@@ -94,7 +94,7 @@ class SongDetails extends React.Component {
               <TableCell align="left" component="th" scope="row">
               Duration
               </TableCell>
-              <TableCell align="lef">{this.song.duration}</TableCell>             
+              <TableCell align="lef">{this.song.length}</TableCell>             
             </TableRow>
             <TableRow>
               <TableCell align="left" component="th" scope="row">
