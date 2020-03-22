@@ -104,6 +104,13 @@ class MemberDetails extends React.Component {
                                 </TableRow>
                                 <TableRow>
                                 <TableCell align="left" component="th" scope="row">
+                                    Real Name
+                                </TableCell>
+                                <TableCell align="lef">{this.member.realName}</TableCell>             
+                                </TableRow>
+                                
+                                <TableRow>
+                                <TableCell align="left" component="th" scope="row">
                                     Gender
                                 </TableCell>
                                 <TableCell align="lef">{this.member.gender}</TableCell>             
