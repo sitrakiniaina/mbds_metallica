@@ -68,23 +68,18 @@ export default function ScrollableTabsButtonAuto() {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          
-          <Tab label="A propos" {...a11yProps(0)} />
-          <Tab label="Membres" {...a11yProps(1)} />
-          <Tab label="Album" {...a11yProps(2)} />
-          <Tab label="Songs" {...a11yProps(3)} />     
+          <Tab label="Membres" {...a11yProps(0)} />
+          <Tab label="Album" {...a11yProps(1)} />
+          <Tab label="Songs" {...a11yProps(2)} />     
         </Tabs>
-      </AppBar>
+      </AppBar>    
       <TabPanel value={value} index={0}>
-        <TestMaterialUI></TestMaterialUI>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
         <GroupeRock></GroupeRock>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={1}>
         <AlbumGroupe></AlbumGroupe>
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={2}>
         Item Four
       </TabPanel>     
     </div>

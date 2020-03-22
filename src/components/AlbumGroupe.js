@@ -28,7 +28,8 @@ class AlbumGroupe extends React.Component {
         super(props);
     }
     routeChange(path) {
-        this.props.history.push(path);
+        //this.props.history.push(path);
+        window.location.href=path;
     }
     render(){
         AlbumGroupe.propTypes = {
@@ -40,7 +41,7 @@ class AlbumGroupe extends React.Component {
             <div className={classes.root}>
               <GridList cellHeight={250} className={classes.gridList} cols="4">       
                 {metallicaData.albums.map(album => (
-                  <GridListTile key={album._id} onClick={()=>this.routeChange("/album/222")}>
+                  <GridListTile key={album._id} onClick={()=>this.routeChange("/album/"+album.title)}>
                     <img src={album?.cover?.medium??album.name} alt={album.title} />
                     <GridListTileBar
                       title={album.title+" - "+album.dateRelease}
