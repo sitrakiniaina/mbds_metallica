@@ -70,8 +70,8 @@ export default function ScrollableTabsButtonAuto() {
           aria-label="scrollable auto tabs example"
         >
           <Tab label="Membres" {...a11yProps(0)} />
-          <Tab label="Album" {...a11yProps(1)} />
-          <Tab label="Songs" {...a11yProps(2)} />     
+          <Tab label="Albums" {...a11yProps(1)} />
+  
         </Tabs>
       </AppBar>    
       <TabPanel value={value} index={0}>
@@ -80,9 +80,7 @@ export default function ScrollableTabsButtonAuto() {
       <TabPanel value={value} index={1}>
         <AlbumGroupe></AlbumGroupe>
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Four
-      </TabPanel>     
+       
     </div>
   );
 }
