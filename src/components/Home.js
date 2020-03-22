@@ -7,48 +7,59 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import metallicaData from './../data/mettalica';
 
+//styles
+const useStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 250,
+    width: 250
+  },
+}));
 class Home extends React.Component {
   state = {
-    newItem: null,
-    hobbies: ["tennis", "foot"]
-  };
-
-  addHobby = () => {
-    const { hobbies, newItem } = this.state;
-    hobbies.push(newItem);
-    this.setState({ hobbies }); // écriture raccourcie de ES6 équivalent à {hobbies:hobbies}
-  };
-
-  removeHobby = (hobbyToRemove) => {
-    this.setState(prevState => {
-      const newHobbiesList = prevState.hobbies.filter(
-        hobby => hobby !== hobbyToRemove && hobby
-      );
-      return { hobbies: newHobbiesList };
-    });
+    
   };
 
   render() {
     // destructuration, permet d'utiliser des méthodes et propriétés
     // sans avoir besoin de les précéder par this. (par ex on utiliser
     // addHobby au lieu de this.addHobby, etc.)
-    const { addHobby, removeHobby } = this;
-    const { hobbies } = this.state;
+    // const { imgSrc } = this.state;
+    const { classes } = this.props;
 
-      let listeDesHobbies = hobbies.map((h, index) => (
-        <Hobby name={h} key={index} removeHobby={removeHobby} />
-      ));
 
       return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="false">
                 <Grid container spacing={3}>
-                    <Grid item xs={3}>
-                        <Typography>Eto ilay a propos</Typography>
+                    <Grid item xs={6}>
+                    <Card className={classes.root}>
+                      <CardActionArea>
+                        <img src={metallicaData.picture.medium}></img>
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            {metallicaData.name}
+                          </Typography>
+                          <Typography variant="body2" component="p">
+                            {metallicaData.dbp_abstract}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={6}>
                         <TabMenu></TabMenu>
                     </Grid>
                 </Grid>
@@ -58,4 +69,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withStyles(useStyles)(Home)
